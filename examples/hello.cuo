@@ -1,0 +1,95 @@
+make string name
+make symbol sep
+
+make real balance
+make real amount
+
+make whole choice
+make whole transactions
+
+make bool valid
+
+print "==============================<nl>"
+print "      Curio Bank System      <nl>"
+print "==============================<nl>"
+
+print "Enter your name: "
+take string name
+
+print "Choose a separator symbol: "
+take symbol sep
+
+set balance = 0
+set transactions = 0
+set choice = 1
+
+while choice != 0 do
+
+    print "<nl>{sep}{sep}{sep} MENU {sep}{sep}{sep}<nl>"
+    print "1 -> Deposit money<nl>"
+    print "2 -> Withdraw money<nl>"
+    print "3 -> Check balance<nl>"
+    print "4 -> Transaction count<nl>"
+    print "0 -> Exit<nl>"
+    print "Enter choice: "
+    take whole choice
+
+    if choice == 1 then
+
+        print "<nl>Enter amount to deposit: "
+        take real amount
+
+        if amount > 0 then
+            set balance = balance + amount
+            set transactions = transactions + 1
+            print "Deposit successful<nl>"
+        else
+            print "Invalid amount<nl>"
+        endif
+
+    else
+        if choice == 2 then
+
+            print "<nl>Enter amount to withdraw: "
+            take real amount
+
+            if amount > 0 then
+
+                if amount <= balance then
+                    set balance = balance - amount
+                    set transactions = transactions + 1
+                    print "Withdrawal successful<nl>"
+                else
+                    print "Insufficient balance<nl>"
+                endif
+
+            else
+                print "Invalid amount<nl>"
+            endif
+
+        else
+            if choice == 3 then
+
+                print "<nl>Current balance: {balance}<nl>"
+
+            else
+                if choice == 4 then
+
+                    print "<nl>Total transactions: {transactions}<nl>"
+
+                else
+                    if choice == 0 then
+                        print "<nl>Exiting system...<nl>"
+                    else
+                        print "<nl>Invalid choice<nl>"
+                    endif
+                endif
+            endif
+        endif
+    endif
+
+    print "{sep}{sep}{sep}{sep}{sep}{sep}{sep}{sep}{sep}{sep}<nl>"
+
+endwhile
+
+print "<nl>Thank you for using Curio Bank, {name}!<nl>"

@@ -1,0 +1,100 @@
+make string name
+make whole age
+make real number
+make whole remainder
+make whole i
+make whole choice
+make bool running
+
+print "============================<nl>"
+print "      Welcome to Curio      <nl>"
+print "============================<nl>"
+
+print "Enter your name: "
+take string name
+
+print "Enter your age: "
+take whole age
+
+print "<nl>Hello {name}, you are {age} years old.<nl>"
+
+set running = true
+set choice = 1
+
+while running == true do
+
+    print "<nl>--- MAIN MENU ---<nl>"
+    print "1 -> Check Even or Odd<nl>"
+    print "2 -> Repeat Demo<nl>"
+    print "3 -> While Loop Countdown<nl>"
+    print "0 -> Exit<nl>"
+    print "Enter choice: "
+    take whole choice
+
+    if choice == 1 then
+
+        print "<nl>Enter a number: "
+        take real number
+
+        set remainder = number % 2
+
+        if remainder == 0 then
+            print "{number} is EVEN<nl>"
+        else
+            print "{number} is ODD<nl>"
+        endif
+
+    else
+        if choice == 2 then
+
+            print "<nl>Repeat loop 10 times (even iterations only)<nl>"
+
+            set i = 1
+
+            repeat 10 times
+
+                set remainder = i % 2
+
+                if remainder != 0 then
+                    set i = i + 1
+                    continue
+                endif
+
+                print "Even iteration: {i}<nl>"
+
+                if i == 8 then
+                    print "Breaking at 8<nl>"
+                    break
+                endif
+
+                set i = i + 1
+
+            endrepeat
+
+        else
+            if choice == 3 then
+
+                print "<nl>Countdown from 5<nl>"
+                set i = 5
+
+                while i > 0 do
+                    print "Count: {i}<nl>"
+                    set i = i - 1
+                endwhile
+
+                print "Blast off!<nl>"
+
+            else
+                if choice == 0 then
+                    print "<nl>Exiting program...<nl>"
+                    set running = false
+                else
+                    print "<nl>Invalid choice<nl>"
+                endif
+            endif
+        endif
+    endif
+
+endwhile
+
+print "<nl>Thank you for using Curio, {name}!<nl>"
