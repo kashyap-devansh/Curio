@@ -90,7 +90,7 @@ Curio has minimal dependencies, compiling across major platforms with GCC, Clang
 ```markdown
 ### Clone the Repository
 ```bash
-git clone https://github.com/yourusername/curio.git
+git clone https://github.com/kashyap-devansh/curio.git
 cd curio
 ```
 
