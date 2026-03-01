@@ -87,14 +87,15 @@ curio/
 
 Curio has minimal dependencies, compiling across major platforms with GCC, Clang, or MSVC.
 
-```markdown
 ### Clone the Repository
+
 ```bash
 git clone https://github.com/kashyap-devansh/curio.git
 cd curio
 ```
 
 ### GCC Compilation
+
 Compile the project utilizing standard optimization flags:
 
 ```bash
@@ -102,6 +103,7 @@ gcc src/*.c -I include -o curio -O3 -Wall
 ```
 
 ### Execution
+
 Provide the `.cuo` source file as the first argument to the interpreter executable.
 
 ```bash
@@ -114,14 +116,13 @@ Provide the `.cuo` source file as the first argument to the interpreter executab
 
 ---
 
-```markdown
-```markdown
 ## Language Reference
 
 Curio enforces static typing and explicit terminators to ensure highly predictable execution paths.
 
 ### Variable Types
-Initializations require the `make` keyword; derivations utilize the `set` keyword.
+
+Initializations require the `make` keyword; assignments use the `set` keyword.
 
 | Type | Syntax Example | Assignment Example | Underlying C Type |
 | :--- | :--- | :--- | :--- |
@@ -132,6 +133,7 @@ Initializations require the `make` keyword; derivations utilize the `set` keywor
 | Boolean | `make bool active` | `set active = true` | `int` (mapped) |
 
 ### Input & Output
+
 Standard I/O is handled via `print` and `take` keywords. String interpolation is supported using curly braces, and `<nl>` represents a newline character.
 
 ```text
@@ -141,9 +143,9 @@ take string username
 
 print "Hello, {username}. Welcome to Curio!<nl>"
 ```
-```
 
 ### Control Flow
+
 Logic blocks strictly mandate explicit termination markers.
 
 ```text
@@ -155,6 +157,7 @@ endif
 ```
 
 ### Iteration
+
 Curio implements conditional iteration (`while`) and bounded iteration (`repeat`), fully supporting `break` and `continue` semantics.
 
 ```text
@@ -162,7 +165,8 @@ repeat 3 times
     print "Polling endpoint...<nl>"
 endrepeat
 ```
-```
+
+---
 
 ## Design Decisions
 
