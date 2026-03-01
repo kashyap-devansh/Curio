@@ -114,6 +114,7 @@ Provide the `.cuo` source file as the first argument to the interpreter executab
 
 ---
 
+```markdown
 ## Language Reference
 
 Curio enforces static typing and explicit terminators to ensure highly predictable execution paths.
@@ -128,6 +129,17 @@ Initializations require the `make` keyword; derivations utilize the `set` keywor
 | Character | `make symbol grade` | `set grade = 'A'` | `char` |
 | Text String | `make string name` | `set name = "Devansh"` | `char[]` |
 | Boolean | `make bool active` | `set active = true` | `int` (mapped) |
+
+### Input & Output
+Standard I/O is handled via `print` and `input` keywords. String interpolation is supported using curly braces, and `<nl>` represents a newline character.
+
+```text
+make string username
+print "Please enter your name: "
+take string username
+
+print "Hello, {username}. Welcome to Curio!<nl>"
+```
 
 ### Control Flow
 Logic blocks strictly mandate explicit termination markers.
@@ -148,8 +160,7 @@ repeat 3 times
     print "Polling endpoint...<nl>"
 endrepeat
 ```
-
----
+```
 
 ## Design Decisions
 
