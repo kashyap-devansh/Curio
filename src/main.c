@@ -14,11 +14,13 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    if(!strstr(argv[1], ".cuo")) {
-        error_ez(E_FILE_WRONG_EXTENSION, 0, "\0", "\0", '\0');
-        exit(1);
-    }
+    size_t len = strlen(argv[1]);
 
+    if (len < 4 || strcmp(argv[1] + len - 4, ".cuo") != 0) {
+        error_ez(E_FILE_WRONG_EXTENSION, 0, NULL, NULL, '\0');
+        exit(EXIT_FAILURE);
+    }
+    
     FILE *file = fopen(argv[1], "r"); 
 
     if(file == NULL) {
