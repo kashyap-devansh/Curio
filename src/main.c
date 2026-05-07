@@ -51,6 +51,11 @@ int main(int argc, char *argv[]) {
     while(fgets(line, sizeof(line), file)) {
         line[strcspn(line, "\n")] = '\0';
 
+        if(line[0] == '#') {
+            line_number++;
+            continue;
+        }
+
         if(strlen(line) == 0) {
             line_number++;
             continue;

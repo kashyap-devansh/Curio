@@ -208,6 +208,7 @@ TokenList tokenize_line(const char *line) {
             case '<': add_token(&list, TOK_LESS, "<"); break;
             case '{': add_token(&list, TOK_LBRACE, "{"); break;
             case '}': add_token(&list, TOK_RBRACE, "}"); break;
+            case '.': add_token(&list, TOK_DOT, "."); break;
             //default : printf("Unknown character: %c\n", line[i]);
         }
         i++;

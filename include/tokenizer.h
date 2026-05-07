@@ -53,6 +53,7 @@ typedef enum {
     TOK_STAR,           // *
     TOK_SLASH,          // /
     TOK_MODULO,         // %
+    TOK_DOT,            // .
     TOK_NOT,            // not
     TOK_AND,            // and 
     TOK_OR,             // or
