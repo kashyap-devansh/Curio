@@ -111,6 +111,15 @@ Full conditional branching and bounded / conditional iteration, all with explici
 - `print` — writes to stdout; supports inline variable interpolation via `{varname}` syntax and `<nl>` as a newline escape
 - `take` — reads typed input from stdin directly into a declared variable
 
+### Comments
+Single-line comments are supported using the `#` prefix. Everything after `#` on a line is ignored by the tokenizer.
+
+```
+# This is a comment
+make whole age     # inline comment
+set age = 25
+```
+
 ### String Interpolation
 Variables are embedded directly in string literals using `{curly brace}` syntax — no format specifiers or concatenation operators needed.
 
@@ -133,10 +142,10 @@ Linear token-based arithmetic evaluation across `whole`, `real`, and `symbol` ty
 
 ## Syntax Reference
 
-All logic blocks require explicit termination markers. Comments are not yet supported.
+All logic blocks require explicit termination markers. Comments use the `#` prefix.
 
 ```
--- ════════ VARIABLES ════════════════
+# ════════ VARIABLES ════════════════
 make whole age
 set age = 25
 
@@ -149,21 +158,21 @@ set name = "Alice"
 make bool active
 set active = true
 
--- ════════ OUTPUT & INPUT ════════════
+# ════════ OUTPUT & INPUT ════════════
 print "Hello, {name}!<nl>"
 
 make string input
 take string input
 print "You entered: {input}<nl>"
 
--- ════════ CONDITIONALS ══════════════
+# ════════ CONDITIONALS ══════════════
 if age > 18 then
     print "Access granted.<nl>"
 else
     print "Access denied.<nl>"
 endif
 
--- ════════ WHILE LOOP ════════════════
+# ════════ WHILE LOOP ════════════════
 make whole i
 set i = 3
 
@@ -172,12 +181,12 @@ while i > 0 do
     set i = i - 1
 endwhile
 
--- ════════ REPEAT LOOP ═══════════════
+# ════════ REPEAT LOOP ═══════════════
 repeat 5 times
     print "Polling...<nl>"
 endrepeat
 
--- ════════ LOOP CONTROL ══════════════
+# ════════ LOOP CONTROL ══════════════
 while active == true do
     print "Running...<nl>"
     break
